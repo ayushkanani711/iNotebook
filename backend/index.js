@@ -17,11 +17,6 @@ app.use(express.json());
 app.use('/api/auth' , require('./routes/auth'))
 app.use('/api/notes' , require('./routes/notes'))
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-  console.log("index.js is running");
-})
-
 app.listen(port, () => {
   console.log(`\n\inootbook app listening on port ${port}`)
 })

@@ -4,10 +4,6 @@ const fetchuser = require("../middleware/fetchuser");
 const Note = require("../model/Note");
 const { body, validationResult } = require("express-validator");
 
-
-
-
-
 // 1. ROUTE: POST "/api/notes/fetchallnotes
 // Get loggedin user's all notes. Login Required
 router.get("/fetchallnotes", fetchuser, async (req, res) => {
@@ -19,13 +15,6 @@ router.get("/fetchallnotes", fetchuser, async (req, res) => {
         res.status(500).json({ error: "Internal server Error at GET ROUTE" });
     }
 });
-
-
-
-
-
-
-
 
 // 2. ROUTE: POST "/api/notes/addnotes"
 // Add a new notes. Login Required
@@ -54,11 +43,6 @@ router.post(
     }
   }
 );
-
-
-
-
-
 
 // 3. ROUTE: PUT "/api/notes/updatenote/:id" 
 // Update an existing Notes using. Login Required
@@ -96,11 +80,6 @@ router.put(
     }
   );
 
-
-
-
-
-
 // 4. ROUTE: DELETE "/api/notes/deletenote/:id"
 // Delete an existing Notes. Login Required
 router.delete("/deletenote/:id", fetchuser, async (req, res) => {
@@ -124,8 +103,5 @@ router.delete("/deletenote/:id", fetchuser, async (req, res) => {
         res.status(500).json({ error: "Internal server Error at DELETE route" });
     }
 })
-
-
-
  
 module.exports = router;
