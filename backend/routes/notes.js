@@ -59,7 +59,6 @@ router.put(
 
         //Find the note to be updated and updte it
         let note = await Note.findById(req.params.id);
-        // console.log('params.id =' + req.params.id);
 
         // If Note id of user and params.id is not match then
         if(!note){ return res.status(404).send("Not Found")}
@@ -68,7 +67,6 @@ router.put(
         if(note.user.toString() !== req.user.id ){
             return res.status(401).send("Not allowes")
         } 
-        // console.log("note.user = " + note.user);
 
         note = await Note.findByIdAndUpdate(req.params.id , {$set:newNote}, {new:true})
         res.json({note})
