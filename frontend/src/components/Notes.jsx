@@ -8,7 +8,7 @@ import AddNote from "./AddNote";
 
 const Notes = () => {
   const context = useContext(noteContext);
-  const { notes, addNote, getNotes, editNote } = context;
+  const { notes, getNotes, editNote } = context;
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const Notes = () => {
     e.preventDefault();
     // addNote(note.etitle, note.edescription , note.etag );
     setShowModal(false); 
-    console.log(note);
     editNote(note.id , note.etitle , note.edescription, note.etag)
   }
   const onChange = (e) => {
@@ -53,7 +52,7 @@ const Notes = () => {
       <AddNote />
 
       <button type="button" className="d-none btn btn-dark" onClick={()=>{setShowModal(true)}}>
-        Launch demo modal
+
       </button>
 
       <div className={`modal ${showModal ? "show" : ""}`} tabIndex="-1" style={{ display: showModal ? "block" : "none" }}>
@@ -93,9 +92,9 @@ const Notes = () => {
         </div>
       </div>
 
-      <h1 className="container ">Your Notes</h1>
+      <h2 className="container ">Your Notes</h2>
       <div className="row my-3 container p-0">
-          {notes.length === 0  &&    <div className="container mx-4" >No notes to Display</div>}
+          {notes.length === 0  &&    <div className="container mx-4" style={{paddingBottom:'141px'}} >No notes to Display</div>}
         {Array.isArray(notes) ? (
           notes.map((note) => <Noteitem updateNote={updateNote} key={note._id} note={note} />)
         ) : (

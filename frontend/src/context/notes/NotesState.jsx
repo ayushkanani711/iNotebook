@@ -36,7 +36,6 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json();
-    // console.log(json);
     setNotes(json);
   };
 
@@ -76,7 +75,6 @@ const NoteState = (props) => {
       },
     });
     const json = await response.json();
-    console.log("response of json at deleteNote");
     setNotes(json);
     showalert('Note deleted', 'danger')
   }; 

@@ -7,6 +7,7 @@ import NoteState from "./context/notes/NOtesState";
 import Alert from "./components/Alert";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      <Footer/>
     </NoteState>
   );
 }

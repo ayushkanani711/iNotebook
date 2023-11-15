@@ -18,5 +18,5 @@ app.use('/api/auth' , require('./routes/auth'))
 app.use('/api/notes' , require('./routes/notes'))
 
 app.listen(port, () => {
-  console.log(`\n\inootbook app listening on port ${port}`)
+  console.log(`\niNotbook app listening on port ${port}`)
 })
