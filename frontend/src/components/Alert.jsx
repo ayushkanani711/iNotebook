@@ -12,7 +12,6 @@ const Alert = () => {
     return lower.charAt(0).toUpperCase() + lower.slice(1);
   };
   return (
-      // console.log();
     <div style={{ height: "50px" }}>
       {alert && (
         <div className={`alert alert-primary alert-${alert.type}`} role="alert">

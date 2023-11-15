@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -14,8 +13,10 @@ function App() {
   return (
     <NoteState>
       <Router>
+
         <Navbar />
         <Alert />
+
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -25,6 +26,7 @@ function App() {
           </Routes>
         </div>
       </Router>
+      
       <Footer/>
     </NoteState>
   );

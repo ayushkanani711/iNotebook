@@ -5,6 +5,7 @@ const NoteState = (props) => {
   const host = "http://localhost:4000";
 
   const notesInitial = [];
+  // Set Notes
   const [notes, setNotes] = useState(notesInitial);
   
   //show alert message
@@ -65,13 +66,12 @@ const NoteState = (props) => {
         "auth-token":localStorage.getItem('token')
       },
     });
-    // Fetch the updated notes after deletion
+    // Fetch the updated notes after delet that note
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         "auth-token":localStorage.getItem('token')
-
       },
     });
     const json = await response.json();
@@ -92,7 +92,7 @@ const NoteState = (props) => {
     });
     const json = response.json();
 
-    //logic to edit in clinet
+    //logic to edit in note
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];
       if (element._id === id) {
@@ -109,12 +109,6 @@ const NoteState = (props) => {
     <NoteContext.Provider
       value={{ notes, addNote, deleteNote, editNote, getNotes, showalert , capitalize , alert, setAlert }} >
             {props.children}
-      {/* <div style={{ height: "50px" }}>
-        {alert && ( <div className={`alert alert-primary alert-${alert.type}`} role="alert" >
-            <strong>{capitalize(alert.type)}</strong>: {alert.msg}
-          </div>
-        )}
-      </div> */}
     </NoteContext.Provider>
   );
 };

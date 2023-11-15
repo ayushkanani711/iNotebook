@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import {useNavigate} from 'react-router-dom'
 import noteContext from "../context/notes/noteContext.jsx";
 import Noteitem from "./Noteitem.jsx";
 import AddNote from "./AddNote";
-
 
 const Notes = () => {
   const context = useContext(noteContext);
@@ -15,7 +14,6 @@ const Notes = () => {
     const fetchNotes = async () => {
       try {
         const authToken = localStorage.getItem('token');
-
         if (authToken) {
           await getNotes();
         } else {
@@ -23,7 +21,6 @@ const Notes = () => {
         }
       } catch (error) {
         console.error('Error fetching notes:', error);
-        // Handle errors if needed
       }
     };
 
@@ -39,7 +36,6 @@ const Notes = () => {
   const [note, setNote] = useState({id:'', etitle:'',edescription:'' , etag:''})
   const handleClick = (e) => {
     e.preventDefault();
-    // addNote(note.etitle, note.edescription , note.etag );
     setShowModal(false); 
     editNote(note.id , note.etitle , note.edescription, note.etag)
   }
@@ -52,7 +48,6 @@ const Notes = () => {
       <AddNote />
 
       <button type="button" className="d-none btn btn-dark" onClick={()=>{setShowModal(true)}}></button>
-        
       <div className={`modal ${showModal ? "show" : ""}`} tabIndex="-1" style={{ display: showModal ? "block" : "none" }}>
         <div className="modal-dialog">
           <div className="modal-content">

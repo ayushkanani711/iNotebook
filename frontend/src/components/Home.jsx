@@ -1,6 +1,5 @@
 import Notes from "./Notes";
 
-
 const Home = () => {
 
   return (

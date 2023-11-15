@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/favicon.png";
 
 const Navbar = () => {
   let location = useLocation();
-  // useEffect(() => {
-  //   // console.log(location.pathname);
-  // }, [location]);
   let navigate = useNavigate();
   const handleLogout = () =>{
       localStorage.removeItem('token');
@@ -19,14 +16,7 @@ const Navbar = () => {
       <Link className="navbar-brand" to="/">
         iNotebook
       </Link>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
       </button>

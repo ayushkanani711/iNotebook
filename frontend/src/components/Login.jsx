@@ -33,20 +33,20 @@ const Login = () => {
     }
   return (
     <>
-    <h2 className='container my-2' >Login to continue iNotebook</h2>
-    <form className='container' onSubmit={handleSubmit} >
-  <div className="mb-3">
-    <label htmlFor="email" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="email" value={credentials.email} onChange={onChange} name="email" placeholder='email' aria-describedby="emailHelp" />
-  </div>
-  <div className="mb-3">
-    <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" id="password" value={credentials.password} onChange={onChange} placeholder='password' name="password" />
-  </div>
-  <div style={{paddingBottom: 373}}>
-    <button type="submit"  className="btn btn-dark my-2" >Login</button>
-  </div>
-</form>
+      <h2 className='container my-2' >Login to continue iNotebook</h2>
+      <form className='container' onSubmit={handleSubmit} >
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email address</label>
+          <input type="email" className="form-control" id="email" value={credentials.email} onChange={onChange} name="email" placeholder='email' aria-describedby="emailHelp" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password</label>
+          <input type="password" className="form-control" id="password" value={credentials.password} onChange={onChange} placeholder='password' name="password" />
+        </div>
+        <div style={{paddingBottom: 373}}>
+          <button type="submit"  className="btn btn-dark my-2" >Login</button>
+        </div>
+      </form>
     </>
   )
 }
