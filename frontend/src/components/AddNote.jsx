@@ -4,7 +4,7 @@ import noteContext from "../context/notes/noteContext.jsx";
 const AddNote = () => {
   const [note, setNote] = useState({title:'',description:'' , tag:''})
   const context = useContext(noteContext);
-  const { addNote, showalert } = context;
+  const { addNote } = context;
   const handleClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description , note.tag );
@@ -26,8 +26,6 @@ const AddNote = () => {
         });
         const json = await response.json() 
         setUserName(json.name);
-        console.log("json at AddNote is ");
-        console.log(json);
       } catch (error) {
         console.log(error);
       }
