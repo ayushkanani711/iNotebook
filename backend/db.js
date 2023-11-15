@@ -2,6 +2,7 @@ const mongoose =require('mongoose');
 
 //ULR of mongoDB compass
 // const mongoURI = "mongodb://localhost:27017/inotebook"
+
 //ULR of mongoDB Atlas
 const mongoURI = "mongodb+srv://ayushkanani711:SowhWPNoyRvHb4FF@cluster0.k7qqbvc.mongodb.net/iNotebook"
 

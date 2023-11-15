@@ -18,8 +18,6 @@ const Login = () => {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-            //   "auth-token":
-            //     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjU1MWIyYTZiODAzNWQwNjkzZTFkNmYxIn0sImlhdCI6MTY5OTg1Mjk2Nn0.8fHuwrpXfORGSq9KbdCj6gv3eUFsc1QNtR7U0P_uIxo",
             }, 
             body: JSON.stringify({email:credentials.email ,password: credentials.password}),
           });

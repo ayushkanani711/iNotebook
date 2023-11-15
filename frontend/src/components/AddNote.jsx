@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import noteContext from "../context/notes/noteContext.jsx";
 
 const AddNote = () => {
   const [note, setNote] = useState({title:'',description:'' , tag:''})
   const context = useContext(noteContext);
-  const { addNote } = context;
+  const { addNote, showalert } = context;
   const handleClick = (e) => {
     e.preventDefault();
     addNote(note.title, note.description , note.tag );
@@ -13,9 +13,37 @@ const AddNote = () => {
   const onChange = (e) => {
     setNote({...note , [e.target.name]:e.target.value})
   }
+  const [userName, setUserName] = useState('');
+  useEffect(() => {
+    const fetchName = async () => {
+      try {
+        const response = await fetch(`http://localhost:4000/api/auth/getuser`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token":localStorage.getItem('token')
+          },
+        });
+        const json = await response.json() 
+        setUserName(json.name);
+        console.log("json at AddNote is ");
+        console.log(json);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+   fetchName();
+  }, [])
+  const capitalize = (word) => {
+    if(word === 'danger'){ word = 'error'}
+    let lower = word.toLowerCase();
+    return lower.charAt(0).toUpperCase() + lower.slice(1);
+  };
+
   return (
     <div className="container my-3">
-    <h1>Add a note</h1>
+      <h1>Hi, {userName.length>1 ? capitalize(userName) : 'there'}!</h1>
+    <h2>Add a Note</h2>
 
     <form className="my-3">
       <div className="form-group">

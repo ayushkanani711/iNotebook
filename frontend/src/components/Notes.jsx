@@ -51,10 +51,8 @@ const Notes = () => {
     <>
       <AddNote />
 
-      <button type="button" className="d-none btn btn-dark" onClick={()=>{setShowModal(true)}}>
-
-      </button>
-
+      <button type="button" className="d-none btn btn-dark" onClick={()=>{setShowModal(true)}}></button>
+        
       <div className={`modal ${showModal ? "show" : ""}`} tabIndex="-1" style={{ display: showModal ? "block" : "none" }}>
         <div className="modal-dialog">
           <div className="modal-content">
@@ -94,11 +92,11 @@ const Notes = () => {
 
       <h2 className="container ">Your Notes</h2>
       <div className="row my-3 container p-0">
-          {notes.length === 0  &&    <div className="container mx-4" style={{paddingBottom:'141px'}} >No notes to Display</div>}
+          {notes.length === 0  &&    <h6 className="container mx-3" style={{paddingBottom:108 }} >Create your first cloudbase Note</h6>}
         {Array.isArray(notes) ? (
           notes.map((note) => <Noteitem updateNote={updateNote} key={note._id} note={note} />)
         ) : (
-          <p>No notes available</p>
+          <div className="container mx-3" style={{paddingBottom:108}} >Create your first cloudbase Note</div>
         )}
       </div>
     </>

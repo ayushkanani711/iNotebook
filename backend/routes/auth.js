@@ -5,15 +5,13 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken"); 
 const fetchuser = require('../middleware/fetchuser')
-
 require('dotenv').config();
+
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY
 
 // ROUTE:1 : Create
 // Create a  User using: POST "api/auth/createuser" .No login required
-router.post(
-  "/createuser",
-  [
+router.post( "/createuser",  [
     body("name", "Enter valid Name").isLength({ min: 3 }),
     body("email", "Enter valid Email").isEmail(),
     body("password", "Password length atleast 5").isLength({ min: 5 }),
@@ -134,13 +132,7 @@ router.post( "/login", [
 // ROUTE:3 : Getuser
 // Get loggedin user Details using : POST "/api/auth/getuser" . Login Required
 router.post('/getuser' ,fetchuser , async(req ,res)=> {
-  // const { email } = req.body;
   try {
-    // let user = await User.findOne({ email });
-    // const userId = user.id
-    // const userDetails = await User.findById(userId).select("-password")
-    // res.send(userDetails)
-
     const userId = req.user.id
     const user = await User.findById(userId).select("-password")
     res.send(user)

@@ -9,8 +9,10 @@ const Noteitem = (props) => {
 
   return (
     <>
-    
-      <div className="card my-3 mx-2" style={{ width: "16rem" }}>
+    <div style={{paddingBottom:191}}>
+
+    </div>
+      <div className="card my-3 mx-2" style={{ width: "16rem"}}>
         <div className="card-body">
           <h5 className="card-title">{note.title.length > 20 ? note.title.toString().slice(0, 20) + "..." : note.title.toString()}</h5>
           <p className="card-text">{note.description.length > 40 ? note.description.toString().slice(0, 40) + "..." : note.description.toString()}</p>
